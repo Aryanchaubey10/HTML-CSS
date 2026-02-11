@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinGrow | Speak Better, Grow Faster</title>
+  <style>
+    :root {
+      --primary: #1f4b99;
+      --secondary: #0f9d8a;
+      --accent: #ffb703;
+      --bg: #f4f8ff;
+      --text: #1f2937;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(120deg, var(--primary), #355fbd);
+      color: var(--white);
+      padding: 24px 0 80px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .menu a {
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .menu a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .hero .tagline {
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      margin-bottom: 22px;
+      max-width: 560px;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #222;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .hero-card {
+      background: var(--white);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h4 {
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .stats {
+      background: #e7f0ff;
+    }
+
+    .stats .grid {
+      text-align: center;
+    }
+
+    .stat-number {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .testimonial {
+      border-left: 4px solid var(--accent);
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cfd8e3;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #0f1e3f;
+      color: #dfe6ff;
+      text-align: center;
+      padding: 18px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .contact-wrap,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Lin<span>Grow</span></div>
+        <ul class="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses">Programs</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <p class="tagline">Speak Better, Grow Faster</p>
+          <h1>Build Confident English Communication & Personality Skills</h1>
+          <p>
+            LinGrow helps students, job seekers, and professionals master spoken English,
+            public speaking, interview communication, and personality development through
+            practical training and personal mentoring.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Book a Free Demo</a>
+            <a class="btn btn-secondary" href="#courses">Explore Programs</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Why Choose LinGrow?</h3>
+          <ul>
+            <li>Daily speaking activities and feedback</li>
+            <li>Small batch learning for personal attention</li>
+            <li>Interview and group discussion practice</li>
+            <li>Personality grooming and confidence building</li>
+            <li>Flexible weekday and weekend batches</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About LinGrow Institute</h2>
+      <p>
+        At LinGrow, we believe that strong communication is the foundation of personal and
+        professional growth. Our training model focuses on real conversations, behavior
+        development, and presentation skills so every learner becomes fluent, confident,
+        and career-ready.
+      </p>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="container">
+      <h2 class="section-title">Our Core Programs</h2>
+      <div class="grid">
+        <article class="card">
+          <h4>Spoken English Mastery</h4>
+          <p>Improve fluency, pronunciation, vocabulary, and grammar through activity-based learning.</p>
+        </article>
+        <article class="card">
+          <h4>Personality Development</h4>
+          <p>Develop body language, confidence, etiquette, and social communication for daily success.</p>
+        </article>
+        <article class="card">
+          <h4>Career Communication Lab</h4>
+          <p>Prepare for interviews, GD rounds, and presentations with mock sessions and expert tips.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="stats">
+    <div class="container">
+      <h2 class="section-title">LinGrow Outcomes</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="stat-number">2500+</div>
+          <p>Learners Trained</p>
+        </div>
+        <div class="card">
+          <div class="stat-number">96%</div>
+          <p>Confidence Improvement Rate</p>
+        </div>
+        <div class="card">
+          <div class="stat-number">120+</div>
+          <p>Successful Job Placements</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Student Feedback</h2>
+      <div class="grid">
+        <article class="card testimonial">
+          <p>“I can now speak in English without fear. LinGrow's daily speaking drills changed me.”</p>
+          <strong>- Priya S.</strong>
+        </article>
+        <article class="card testimonial">
+          <p>“The interview practice helped me clear two job rounds confidently.”</p>
+          <strong>- Rahul K.</strong>
+        </article>
+        <article class="card testimonial">
+          <p>“Excellent mentors and a very supportive environment for personality growth.”</p>
+          <strong>- Ayesha M.</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-wrap">
+      <div>
+        <h2 class="section-title" style="text-align:left; margin-bottom: 12px;">Contact LinGrow</h2>
+        <p><strong>Address:</strong> 2nd Floor, Growth Plaza, Your City</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> hello@lingrow.in</p>
+        <p style="margin-top: 10px;">Join LinGrow today and unlock your best version.</p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea rows="4" placeholder="Tell us about your learning goal"></textarea>
+        <button class="btn btn-primary" type="submit">Request Callback</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 LinGrow Institute | Speak Better, Grow Faster
+  </footer>
+</body>
+</html>
